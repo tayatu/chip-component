@@ -12,6 +12,11 @@ const Chip = ({ items }) => {
     setShowDropdown(true);
   };
 
+  const handleClickInput = () => {
+    setShowDropdown(true);
+    setHighlightedIndex(-1);
+  };
+
   const handleKeyDown = (e) => {
     if (e.key === "Backspace" && inputValue === "") {
       handleBackspace();
@@ -22,6 +27,7 @@ const Chip = ({ items }) => {
     setSelectedItems([...selectedItems, item]);
     setInputValue("");
     setShowDropdown(false);
+    setHighlightedIndex(-1);
   };
 
   const handleRemove = (index) => {
@@ -84,7 +90,7 @@ const Chip = ({ items }) => {
         value={inputValue}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
-        onClick={() => setShowDropdown(true)} 
+        onClick={handleClickInput}
       />
       {showDropdown && (
         <ul className="item-list">
