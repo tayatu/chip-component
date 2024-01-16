@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import React from 'react';
+import Chip from './Chip';
 import './App.css';
 
-function App() {
+const items = [
+  { name: 'User', email: 'user@example.com' },
+  { name: 'Person', email: 'person@example.com' },
+  { name: 'John Doe', email: 'john.doe@example.com' },
+];
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className="heading">Pick Users</h1>
+      <Chip items={items} />
     </div>
   );
 }
